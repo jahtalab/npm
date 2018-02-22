@@ -1,4 +1,19 @@
-* [`6954dfc19`](https://github.com/npm/npm/commit/6954dfc192f88ac263f1fcc66cf820a21f4379f1)
+## v5.7.1 (2018-02-22):
+
+This release patches up a bug that could cause some ownership changes on system
+files when running from some directories when also using `sudo`. 😲
+
+The original patch was added to increase consistency and reliability of methods
+npm uses to avoid writing files as `root` in places it shouldn't, but the change
+was applied in places that should have used regular `mkdirp`. This release
+reverts that patch.
+
+* [`74e149da6`](https://github.com/npm/npm/commit/74e149da6efe6ed89477faa81fef08eee7999ad0)
+  [`#19883`](https://github.com/npm/npm/issue/19883)
+  Revert "*: Switch from mkdirp to correctMkdir to preserve perms and owners"
+  This reverts commit 94227e15eeced836b3d7b3d2b5e5cc41d4959cff.
+  ([@Kat Marchán](https://github.com/Kat Marchán))
+
 ## v5.7.0 (2018-02-20):
 
 Hey y'all, it's been a while.  Expect our release rate to increase back to
